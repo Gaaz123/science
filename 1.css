@@ -1,0 +1,212 @@
+/* style.css - файл со стилями */
+
+/* Общие стили */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Georgia', 'Times New Roman', serif;
+  background: linear-gradient(135deg, #f5f0eb 0%, #e8e0d8 100%);
+  color: #2c2b28;
+  padding: 40px 20px;
+  min-height: 100vh;
+}
+
+/* Контейнер */
+.container {
+  max-width: 1300px;
+  margin: 0 auto;
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(10px);
+  border-radius: 40px;
+  padding: 50px 40px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+}
+
+/* Заголовок страницы */
+.main-title {
+  text-align: center;
+  font-size: 3.2rem;
+  font-weight: 400;
+  letter-spacing: 3px;
+  color: #1e2b3c;
+  margin-bottom: 10px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.main-subtitle {
+  text-align: center;
+  font-size: 1.1rem;
+  color: #6b655b;
+  letter-spacing: 1px;
+  margin-bottom: 40px;
+  padding-bottom: 20px;
+  border-bottom: 2px dashed #d6cdbc;
+  font-style: italic;
+}
+
+/* Сетка карточек */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 30px;
+  margin-top: 10px;
+}
+
+/* Карточка учёного */
+.card {
+  background: #fcfaf7;
+  border-radius: 30px;
+  padding: 30px 25px 25px;
+  border: 1px solid #e8e0d8;
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+  border-color: #c4b8a8;
+  background: #ffffff;
+}
+
+/* Имя учёного */
+.card h2 {
+  font-size: 1.8rem;
+  font-weight: 500;
+  color: #1e2b3c;
+  margin-bottom: 5px;
+  letter-spacing: 0.5px;
+}
+
+/* Годы жизни */
+.years {
+  font-size: 1rem;
+  color: #8a7f72;
+  margin-bottom: 18px;
+  font-weight: 400;
+  background: #f0ebe4;
+  padding: 4px 18px;
+  border-radius: 30px;
+  display: inline-block;
+}
+
+/* Фото */
+.photo-wrapper {
+  width: 100%;
+  max-width: 300px;
+  border-radius: 20px;
+  overflow: hidden;
+  margin-bottom: 20px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+  border: 1px solid #ede8e0;
+  transition: all 0.3s ease;
+}
+
+.card:hover .photo-wrapper {
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.12);
+}
+
+.photo-wrapper img {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: transform 0.4s ease;
+}
+
+.card:hover .photo-wrapper img {
+  transform: scale(1.03);
+}
+
+/* Текст описания */
+.card p {
+  font-size: 1rem;
+  line-height: 1.7;
+  color: #3d3a35;
+  text-align: left;
+  max-width: 100%;
+}
+
+.card p strong {
+  color: #1e2b3c;
+  font-weight: 600;
+}
+
+/* Подпись внизу */
+.footer {
+  margin-top: 50px;
+  text-align: center;
+  font-size: 0.95rem;
+  color: #8a7f72;
+  border-top: 1px solid #e1d9cf;
+  padding-top: 25px;
+  letter-spacing: 0.5px;
+}
+
+.footer span {
+  background: #f0ebe4;
+  padding: 6px 24px;
+  border-radius: 40px;
+  display: inline-block;
+}
+
+.card:hover {
+  box-shadow: 
+    0 20px 40px rgba(0, 0, 0, 0.08),
+    0 0 30px rgba(184, 169, 154, 0.2); /* свечение */
+  border-color: #a8927a;
+}
+
+/* Имена учёных — более элегантный шрифт */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&display=swap');
+
+.card h2 {
+  font-family: 'Playfair Display', 'Georgia', serif;
+  font-weight: 600;
+}
+
+/* Основной текст — более современный */
+.card p {
+  font-family: 'Segoe UI', 'Georgia', serif;
+}
+
+/* Адаптивность для мобильных */
+@media (max-width: 700px) {
+  .container {
+    padding: 25px 15px;
+  }
+
+  .main-title {
+    font-size: 2.2rem;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 25px;
+  }
+
+
+  .photo-wrapper {
+    max-width: 250px;
+  }
+}
+
+@media (max-width: 400px) {
+  .main-title {
+    font-size: 1.8rem;
+  }
+
+  .card h2 {
+    font-size: 1.3rem;
+  }
+
+  .photo-wrapper {
+    max-width: 200px;
+  }
+}
