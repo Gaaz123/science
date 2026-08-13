@@ -1,212 +1,667 @@
-/* style.css - файл со стилями */
+/* =========================
+   ПОДКЛЮЧЕНИЕ ШРИФТОВ
+========================= */
 
-/* Общие стили */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Cormorant+Garamond:wght@400;600&display=swap');
+
+
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
 }
 
 body {
-  font-family: 'Georgia', 'Times New Roman', serif;
-  background: linear-gradient(135deg, #f5f0eb 0%, #e8e0d8 100%);
-  color: #2c2b28;
-  padding: 40px 20px;
-  min-height: 100vh;
+    background: #111;
+    color: #f3efe6;
+    font-family: 'Cormorant Garamond', serif;
+    overflow-x: hidden;
 }
 
-/* Контейнер */
-.container {
-  max-width: 1300px;
-  margin: 0 auto;
-  background: rgba(255, 255, 255, 0.92);
-  backdrop-filter: blur(10px);
-  border-radius: 40px;
-  padding: 50px 40px;
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+
+/* =========================
+   ГЛАВНЫЙ ЗАГОЛОВОК
+========================= */
+
+body > h1 {
+    min-height: 100vh;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 40px;
+
+    position: relative;
+
+    text-align: center;
+
+    font-family: 'Playfair Display', serif;
+
+    font-size: clamp(55px, 10vw, 150px);
+
+    line-height: .85;
+
+    letter-spacing: -7px;
+
+    font-weight: 400;
+
+    color: #f3efe6;
+
+    background:
+        radial-gradient(
+            circle at 70% 35%,
+            rgba(168, 76, 50, .28),
+            transparent 25%
+        ),
+        radial-gradient(
+            circle at 20% 80%,
+            rgba(255,255,255,.05),
+            transparent 30%
+        ),
+        #111;
 }
 
-/* Заголовок страницы */
-.main-title {
-  text-align: center;
-  font-size: 3.2rem;
-  font-weight: 400;
-  letter-spacing: 3px;
-  color: #1e2b3c;
-  margin-bottom: 10px;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.05);
+
+/* декоративная линия */
+
+body > h1::before {
+    content: "АРХИВ • РУССКАЯ НАУКА • 1711—1968";
+
+    position: absolute;
+
+    top: 45px;
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    font-family: 'Cormorant Garamond', serif;
+
+    font-size: 10px;
+
+    letter-spacing: 5px;
+
+    color: #a84c32;
+
+    white-space: nowrap;
 }
 
-.main-subtitle {
-  text-align: center;
-  font-size: 1.1rem;
-  color: #6b655b;
-  letter-spacing: 1px;
-  margin-bottom: 40px;
-  padding-bottom: 20px;
-  border-bottom: 2px dashed #d6cdbc;
-  font-style: italic;
+
+body > h1::after {
+    content: "01 — 07";
+
+    position: absolute;
+
+    bottom: 45px;
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    font-family: 'Cormorant Garamond', serif;
+
+    font-size: 28px;
+
+    letter-spacing: 5px;
+
+    color: #777;
+
+    border: 1px solid #444;
+
+    padding: 12px 20px;
 }
 
-/* Сетка карточек */
-.grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  gap: 30px;
-  margin-top: 10px;
+
+/* =========================
+   КАРТОЧКИ УЧЁНЫХ
+========================= */
+
+body > div {
+    min-height: 100vh;
+
+    width: 100%;
+
+    padding: 100px 8vw;
+
+    display: grid;
+
+    grid-template-columns:
+        minmax(320px, 45%)
+        minmax(300px, 1fr);
+
+    gap: 8vw;
+
+    align-items: center;
+
+    position: relative;
+
+    border-top: 1px solid #2d2d2d;
+
+    background: #111;
 }
 
-/* Карточка учёного */
-.card {
-  background: #fcfaf7;
-  border-radius: 30px;
-  padding: 30px 25px 25px;
-  border: 1px solid #e8e0d8;
-  transition: all 0.3s ease;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
+
+/* каждая вторая секция светлая */
+
+body > div:nth-of-type(even) {
+    background: #e9e5db;
+
+    color: #171717;
 }
 
-.card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
-  border-color: #c4b8a8;
-  background: #ffffff;
+
+/* =========================
+   ВНУТРЕННЯЯ ЧАСТЬ
+========================= */
+
+body > div > div:first-child {
+    position: relative;
+
+    z-index: 2;
 }
 
-/* Имя учёного */
-.card h2 {
-  font-size: 1.8rem;
-  font-weight: 500;
-  color: #1e2b3c;
-  margin-bottom: 5px;
-  letter-spacing: 0.5px;
+
+/* =========================
+   ИМЯ
+========================= */
+
+body > div h2 {
+    position: relative;
+
+    margin-bottom: 15px;
+
+    font-family: 'Playfair Display', serif;
+
+    font-weight: 400;
+
+    font-size: clamp(38px, 5vw, 76px);
+
+    line-height: .95;
+
+    letter-spacing: -3px;
 }
 
-/* Годы жизни */
-.years {
-  font-size: 1rem;
-  color: #8a7f72;
-  margin-bottom: 18px;
-  font-weight: 400;
-  background: #f0ebe4;
-  padding: 4px 18px;
-  border-radius: 30px;
-  display: inline-block;
+
+/* красная линия перед именем */
+
+body > div h2::before {
+    content: "";
+
+    display: block;
+
+    width: 45px;
+    height: 3px;
+
+    margin-bottom: 25px;
+
+    background: #a84c32;
 }
 
-/* Фото */
-.photo-wrapper {
-  width: 100%;
-  max-width: 300px;
-  border-radius: 20px;
-  overflow: hidden;
-  margin-bottom: 20px;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
-  border: 1px solid #ede8e0;
-  transition: all 0.3s ease;
+
+/* =========================
+   ГОДЫ
+========================= */
+
+body > div h2 + p {
+    color: #a84c32;
+
+    font-size: 30px;
+
+    font-weight: bold;
+
+    letter-spacing: 4px;
+
+    margin-bottom: 30px;
+
+    font-family: 'Cormorant Garamond', serif;
 }
 
-.card:hover .photo-wrapper {
-  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.12);
+
+/* =========================
+   ФОТО
+========================= */
+
+body > div img {
+    display: block;
+
+    width: 100%;
+
+    max-width: 500px;
+
+    height: 620px;
+
+    object-fit: cover;
+
+    filter: grayscale(100%);
+
+    transition:
+        filter .7s ease,
+        transform .7s ease;
+
+    box-shadow:
+        25px 25px 0 #292929;
 }
 
-.photo-wrapper img {
-  width: 100%;
-  height: auto;
-  display: block;
-  transition: transform 0.4s ease;
+
+/* при наведении фото становится цветным */
+
+body > div:hover img {
+    filter: grayscale(0%);
+
+    transform:
+        scale(1.025);
 }
 
-.card:hover .photo-wrapper img {
-  transform: scale(1.03);
+
+/* =========================
+   ТЕКСТ
+========================= */
+
+body > div > p {
+    max-width: 650px;
+
+    font-family: 'Playfair Display', serif;
+
+    font-size: clamp(20px, 2.5vw, 32px);
+
+    line-height: 1.9;
+
+    color: #bcb9b0;
 }
 
-/* Текст описания */
-.card p {
-  font-size: 1rem;
-  line-height: 1.7;
-  color: #3d3a35;
-  text-align: left;
-  max-width: 100%;
+
+/* текст на светлых секциях */
+
+body > div:nth-of-type(even) > p {
+    color: #55524c;
 }
 
-.card p strong {
-  color: #1e2b3c;
-  font-weight: 600;
+
+/* первое предложение */
+
+body > div > p strong {
+    color: #f3efe6;
+
+    font-weight: 600;
 }
 
-/* Подпись внизу */
-.footer {
-  margin-top: 50px;
-  text-align: center;
-  font-size: 0.95rem;
-  color: #8a7f72;
-  border-top: 1px solid #e1d9cf;
-  padding-top: 25px;
-  letter-spacing: 0.5px;
+
+body > div:nth-of-type(even) > p strong {
+    color: #1d1c1a;
 }
 
-.footer span {
-  background: #f0ebe4;
-  padding: 6px 24px;
-  border-radius: 40px;
-  display: inline-block;
+
+/* =========================
+   НОМЕРА 01—07
+========================= */
+
+body > div::before {
+    position: absolute;
+
+    right: 6vw;
+    top: 45px;
+
+    font-family: 'Playfair Display', serif;
+
+    font-size: clamp(80px, 14vw, 190px);
+
+    line-height: 1;
+
+    color: rgba(255,255,255,.045);
+
+    z-index: 0;
 }
 
-.card:hover {
-  box-shadow: 
-    0 20px 40px rgba(0, 0, 0, 0.08),
-    0 0 30px rgba(184, 169, 154, 0.2); /* свечение */
-  border-color: #a8927a;
+
+body > div:nth-of-type(1)::before {
+    content: "01";
 }
 
-/* Имена учёных — более элегантный шрифт */
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&display=swap');
-
-.card h2 {
-  font-family: 'Playfair Display', 'Georgia', serif;
-  font-weight: 600;
+body > div:nth-of-type(2)::before {
+    content: "02";
 }
 
-/* Основной текст — более современный */
-.card p {
-  font-family: 'Segoe UI', 'Georgia', serif;
+body > div:nth-of-type(3)::before {
+    content: "03";
 }
 
-/* Адаптивность для мобильных */
-@media (max-width: 700px) {
-  .container {
-    padding: 25px 15px;
-  }
-
-  .main-title {
-    font-size: 2.2rem;
-  }
-
-  .grid {
-    grid-template-columns: 1fr;
-    gap: 25px;
-  }
-
-
-  .photo-wrapper {
-    max-width: 250px;
-  }
+body > div:nth-of-type(4)::before {
+    content: "04";
 }
+
+body > div:nth-of-type(5)::before {
+    content: "05";
+}
+
+body > div:nth-of-type(6)::before {
+    content: "06";
+}
+
+body > div:nth-of-type(7)::before {
+    content: "07";
+}
+
+
+/* номера на светлом фоне */
+
+body > div:nth-of-type(even)::before {
+    color: rgba(0,0,0,.06);
+}
+
+
+/* =========================
+   ЧЕРЕДОВАНИЕ ФОТО
+========================= */
+
+body > div:nth-of-type(even) {
+    grid-template-columns:
+        minmax(300px, 1fr)
+        minmax(320px, 45%);
+}
+
+
+/* второй, четвёртый и т.д.
+   фотография справа */
+
+body > div:nth-of-type(even) > div:first-child {
+    grid-column: 2;
+    grid-row: 1;
+}
+
+
+body > div:nth-of-type(even) > p {
+    grid-column: 1;
+    grid-row: 1;
+}
+
+
+/* =========================
+   ДЕКОРАТИВНАЯ ЛИНИЯ
+========================= */
+
+body > div::after {
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    bottom: 0;
+
+    width: 0;
+    height: 5px;
+
+    background: #a84c32;
+
+    transition:
+        width .7s ease;
+}
+
+
+body > div:hover::after {
+    width: 35%;
+}
+
+
+/* =========================
+   ПЕРВАЯ КАРТОЧКА
+========================= */
+
+body > div:nth-of-type(1) {
+    background:
+        linear-gradient(
+            90deg,
+            #111 0%,
+            #111 50%,
+            #161616 100%
+        );
+}
+
+
+/* =========================
+   ПОСЛЕДНЯЯ КАРТОЧКА
+========================= */
+
+body > div:nth-of-type(7) {
+    min-height: 100vh;
+
+    padding-bottom: 150px;
+}
+
+
+/* =========================
+   АНИМАЦИЯ
+========================= */
+
+body > div {
+    animation:
+        sectionAppear 1s ease both;
+}
+
+
+@keyframes sectionAppear {
+
+    from {
+        opacity: 0;
+
+        transform:
+            translateY(50px);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            translateY(0);
+    }
+}
+
+
+/* =========================
+   ПОЛОСА СВЕРХУ
+========================= */
+
+body > div > div:first-child::before {
+    content: "";
+
+    position: absolute;
+
+    left: -35px;
+    top: 0;
+
+    width: 1px;
+    height: 100%;
+
+    background:
+        linear-gradient(
+            to bottom,
+            #a84c32,
+            transparent
+        );
+
+    opacity: .5;
+}
+
+
+/* =========================
+   TABLET
+========================= */
+
+@media (max-width: 900px) {
+
+    body > h1 {
+        min-height: 80vh;
+
+        letter-spacing: -4px;
+    }
+
+
+    body > div,
+    body > div:nth-of-type(even) {
+
+        display: flex;
+
+        flex-direction: column;
+
+        align-items: stretch;
+
+        min-height: auto;
+
+        padding:
+            90px 7vw;
+
+        gap: 55px;
+    }
+
+
+    body > div:nth-of-type(even)
+    > div:first-child {
+
+        order: 0;
+    }
+
+
+    body > div:nth-of-type(even)
+    > p {
+
+        order: 1;
+    }
+
+
+    body > div img {
+
+        width: 100%;
+
+        max-width: none;
+
+        height: 600px;
+    }
+
+
+    body > div > p {
+
+        max-width: 800px;
+    }
+}
+
+
+/* =========================
+   PHONE
+========================= */
+
+@media (max-width: 600px) {
+
+    body > h1 {
+
+        min-height: 75vh;
+
+        padding: 30px;
+
+        font-size: 58px;
+
+        letter-spacing: -3px;
+    }
+
+
+    body > h1::before {
+
+        top: 30px;
+
+        font-size: 8px;
+
+        letter-spacing: 2px;
+
+        width: 100%;
+
+        text-align: center;
+    }
+
+
+    body > h1::after {
+
+        bottom: 30px;
+    }
+
+
+    body > div,
+    body > div:nth-of-type(even) {
+
+        padding:
+            70px 25px;
+
+        gap: 45px;
+    }
+
+
+    body > div h2 {
+
+        font-size: 44px;
+
+        letter-spacing: -2px;
+    }
+
+
+    body > div img {
+
+        height: 470px;
+
+        box-shadow:
+            15px 15px 0 #292929;
+    }
+
+
+    body > div > p {
+
+        font-size: 17px;
+
+        line-height: 1.7;
+    }
+
+    body > div::before {
+
+        font-size: 100px;
+
+        right: 20px;
+
+        top: 25px;
+    }
+
+
+    body > div > div:first-child::before {
+
+        display: none;
+    }
+}
+
+
+/* =========================
+   VERY SMALL PHONE
+========================= */
 
 @media (max-width: 400px) {
-  .main-title {
-    font-size: 1.8rem;
-  }
 
-  .card h2 {
-    font-size: 1.3rem;
-  }
+    body > h1 {
 
-  .photo-wrapper {
-    max-width: 200px;
-  }
+        font-size: 48px;
+    }
+
+
+    body > div h2 {
+
+        font-size: 37px;
+    }
+
+
+    body > div img {
+
+        height: 400px;
+    }
+
+
+    body > div > p {
+
+        font-size: 16px;
+    }
 }
